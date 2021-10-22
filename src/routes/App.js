@@ -6,7 +6,9 @@ import React from 'react';
 import { Navegacion } from '../layouts/Navegacion';
 import {BrowserRouter, Switch,Route} from 'react-router-dom'
 import { Container } from 'react-bootstrap';
-import { Partidos } from '../pages/Partidos'
+import { Partidos } from '../pages/Partidos';
+import { Asociados } from '../pages/Asociados';
+
 import { Login } from '../pages/Login';
 import { Registro } from '../pages/Registro';
 
@@ -39,6 +41,7 @@ function App() {
             <Route exact path='/' component={Partidos}></Route>
             <Route exact path='/login' component={Login}></Route>
             <Route exact path='/registro' component={Registro}></Route>
+            <Route exact path='/asociados' component={Asociados}></Route>
             
           </Switch>
         </Container>

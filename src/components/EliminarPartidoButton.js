@@ -2,52 +2,67 @@ import axios from 'axios';
 import React from 'react'
 import { Toast } from 'react-bootstrap';
 import { ELIMINAR_PARTIDO_ENDPOINT } from '../conection/helpers/endpoints';
+import { Button, Form, Row, Col } from 'react-bootstrap'
 
-function EliminarPartidoButton({partidoId, local,visitante}) {
-
-    const history=useHistpry();
-
-    const crearAlerta=()=>{
-        confirmAlert({
-            tittle="Eliminar partido",
-            message:`desea eliminar partido ${local} vs ${visitante}`,
-            buttons:[
-                {
-                    label:'si',
-                    onClick:()=>{EliminarPartidoButton()}
-                }
-            ]
-        })
+function EliminarPartidoButton() {
+    
 
 
-    }
-
-        const eliminarPartido=async()=>{
-            axios.delete(`${ELIMINAR_PARTIDO_ENDPOINT}/${partidoId}`)
-            .then(response=>{
-                Toast.info('Partido eliminado',{
-                    position: toast.POSITION.BOTTOM_CENTER,
-                    autoClose: 2000
-                });
-                history.push(`/partidos/${response.data.partidoId}`);
-            })
-            .catch(error =>{
-                toast.error(error.response.data.message,{
-                    position:toast.POSITION.BOTTOM.CENTER,autoclose:2000
-                });
-            })
-        }
 
     return (
 
-        <Button
-            variant ='primary' size='sm'
-            onClick={crearAlerta}
-        >
-            ELIMINAR
+<Form>
+  <Row className="mb-3">
+    <Form.Group as={Col} controlId="formGridEmail">
+      <Form.Label>Email</Form.Label>
+      <Form.Control type="email" placeholder="Enter email" />
+    </Form.Group>
 
-        </Button>
+    <Form.Group as={Col} controlId="formGridPassword">
+      <Form.Label>Password</Form.Label>
+      <Form.Control type="password" placeholder="Password" />
+    </Form.Group>
+  </Row>
+
+  <Form.Group className="mb-3" controlId="formGridAddress1">
+    <Form.Label>Address</Form.Label>
+    <Form.Control placeholder="1234 Main St" />
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formGridAddress2">
+    <Form.Label>Address 2</Form.Label>
+    <Form.Control placeholder="Apartment, studio, or floor" />
+  </Form.Group>
+
+  <Row className="mb-3">
+    <Form.Group as={Col} controlId="formGridCity">
+      <Form.Label>City</Form.Label>
+      <Form.Control />
+    </Form.Group>
+
+    <Form.Group as={Col} controlId="formGridState">
+      <Form.Label>State</Form.Label>
+      <Form.Select defaultValue="Choose...">
+        <option>Choose...</option>
+        <option>...</option>
+      </Form.Select>
+    </Form.Group>
+
+    <Form.Group as={Col} controlId="formGridZip">
+      <Form.Label>Zip</Form.Label>
+      <Form.Control />
+    </Form.Group>
+  </Row>
+
+  <Form.Group className="mb-3" id="formGridCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
     )
-}
 
+}
 export {EliminarPartidoButton}

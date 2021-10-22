@@ -57,7 +57,7 @@ function Login() {
                         <h3>Iniciar sesion</h3>
                         <LoginForm errores={errores} enviarCallback={login}></LoginForm>
                         <div className='mt-3'>
-                            <Link to={'/registro'}>¿No tienes cuenta? Regisrate aquí </Link>
+                            <Link to={'/registro'}>¿No tienes cuenta? Registrate aquí </Link>
                             
                         </div>
                     </Card>

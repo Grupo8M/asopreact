@@ -32,6 +32,7 @@ function Navegacion() {
                             
                                 <Nav.Link as={NavLink} to ={'/registro'}>Registrar usuario</Nav.Link>
                                 <Nav.Link as={NavLink} to ={'/login'}>Iniciar sesion</Nav.Link>
+                                <Nav.Link as={NavLink} to ={'asociados'}>Asociados</Nav.Link>
                                 
                             </React.Fragment>
                                  ):(
